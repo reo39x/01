@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'ReviewController@top')->middleware('auth');
+Route::post('/reviews', 'ReviewController@store');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
