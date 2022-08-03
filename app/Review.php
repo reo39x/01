@@ -11,6 +11,7 @@ class Review extends Model
 
     protected $fillable = [
         'body',
+        'choice_id',
         'user_id',
         'item_id'
         ];
@@ -31,5 +32,11 @@ class Review extends Model
     public function coordinates()
     {
         return $this->hasMany('App\Coordinate');
+    }
+    
+    // Choiceに対するリレーション
+    public function choice()
+    {
+        return $this->belongsTo('App\Choice');
     }
 }
