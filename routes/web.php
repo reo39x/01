@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', 'ReviewController@top')->middleware('auth');
-Route::post('/reviews', 'ReviewController@store');
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/', 'ReviewController@top');
+    Route::post('/reviews', 'ReviewController@store');
+    Route::get('/reviews/{review}', 'ReviewController@show');
+});
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
