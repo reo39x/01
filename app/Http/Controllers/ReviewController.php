@@ -6,7 +6,7 @@ use App\Item;
 use App\Review;
 use App\User;
 use App\Choice;
-use Illuminate\Http\Request;
+use App\Http\Requests\ReviewRequest;
 
 class ReviewController extends Controller
 {
@@ -15,10 +15,10 @@ class ReviewController extends Controller
         return view('review/top')->with(['items' => $item->get(), 'choices' => $choice->get()]);
     }
     
-    public function store(Request $request, Review $review)
+    public function store(ReviewRequest $request, Review $review)
     {
         $input = $request['review'];
-        $input += ['user_id' => $request -> user() -> id];
+        $input += ['user_id' => $request->user()->id];
         $review->fill($input)->save();
         return redirect('/reviews/' . $review->id);
     }
