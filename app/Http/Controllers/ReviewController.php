@@ -22,4 +22,9 @@ class ReviewController extends Controller
         $review->fill($input)->save();
         return redirect('/reviews/' . $review->id);
     }
+    
+    public function show(Review $review)
+    {
+        return view('review/review')->with(['review' => $review]);
+    }
 }
