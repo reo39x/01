@@ -15,7 +15,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/', 'ReviewController@top');
     Route::post('/reviews', 'ReviewController@store');
     Route::get('/reviews/{review}', 'ReviewController@show');
-    Route::delete('/reviews/{review}', 'ReviewController@delete');
     Route::get('/reviews/{review}/edit', 'ReviewController@edit');
     Route::put('/reviews/{review}', 'ReviewController@update');
 });
