@@ -28,7 +28,24 @@
         
         <p class="edit">[<a href="/reviews/{{ $review->id }}/edit">編集</a>]</p>
         
+        <form action="/reviews/{{ $review->id }}" id="form_delete" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type='button' onclick="return deletePost(this);">削除</button>
+        </form> 
+        
         <a href="/">戻る</a>
+        
+        <script>
+            function deletePost(e)
+            {
+                'use strict';
+                if (confirm('削除すると復元できません。\n本当に削除しますか？'))
+                {
+                    document.getElementById('form_delete').submit();
+                }
+            }
+        </script>
     </body>
 </html>
 
