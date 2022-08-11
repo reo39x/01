@@ -13,11 +13,10 @@
         {{Auth::user()->name}}
         
         <h1>洋服の口コミサイト</h1>
-        <h2>＞投稿されている口コミを見る</h2>
-        
-        <form action="/reviews" method="POST">
+        <h2>＞口コミの編集</h2>
+        <form action="/reviews/{{ $review->id }}" method="POST">
             @csrf
-            <h2>＞口コミを投稿する</h2>
+            @method('PUT')
             <div class="item">
                 <h3>商品名：</h3>
                 <select name="review[item_id]">
@@ -36,10 +35,10 @@
             </div>
             <div class="body">
                 <h3>口コミ文：</h3>
-                <textarea name="review[body]" placeholder="口コミ内容を書いてください。">{{ old('review.body') }}</textarea>
+                <textarea name="review[body]">{{ $review->body }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('review.body') }}</p>
             </div>
-            <input type="submit" value="投稿"/>
+            <input type="submit" value="保存"/>
         </form>
     </body>
 </html>
