@@ -21,7 +21,11 @@
                 <h3>商品名：</h3>
                 <select name="review[item_id]">
                     @foreach($items as $item)
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @if($item->id == $review->item->id)
+                            <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                        @else
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -29,7 +33,11 @@
                 <h3>評価：</h3>
                 <select name="review[choice_id]">
                     @foreach($choices as $choice)
-                    <option value="{{ $choice->id }}">{{ $choice->choice }}</option>
+                        @if($choice->id == $review->choice->id)
+                            <option value="{{ $choice->id }}" selected>{{ $choice->choice }}</option>
+                        @else
+                            <option value="{{ $choice->id }}">{{ $choice->choice }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
