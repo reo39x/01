@@ -10,7 +10,7 @@
     </head>
     
     <body>
-        {{Auth::user()->name}}
+        <a href="/user">{{Auth::user()->name}}</a>
         
         <h1>洋服の口コミサイト</h1>
         <h2>＞投稿されている口コミを見る</h2>
