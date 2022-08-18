@@ -26,6 +26,9 @@
             <h4>口コミ文：</h4>
             <p>{{ $review->body }}</p>
         </div>
+        <div class='updated_at'>
+            <p>最終更新日時：{{ $review->updated_at }}</p>
+        </div>
         
         <p class="edit">[<a href="/reviews/{{ $review->id }}/edit">編集</a>]</p>
         
