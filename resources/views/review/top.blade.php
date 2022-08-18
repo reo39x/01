@@ -13,13 +13,14 @@
         <a href="/user">{{Auth::user()->name}}</a>
         
         <h1>洋服の口コミサイト</h1>
-        <h2>＞投稿されている口コミを見る</h2>
+        <h2>トップページ</h2>
+        <h3>＞投稿されている口コミを見る</h3>
         
         <form action="/reviews" method="POST">
             @csrf
-            <h2>＞口コミを投稿する</h2>
+            <h3>＞口コミを投稿する</h3>
             <div class="item">
-                <h3>商品名：</h3>
+                <h4>商品名：</h4>
                 <select name="review[item_id]">
                     @foreach($items as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -27,7 +28,7 @@
                 </select>
             </div>
             <div class="choice">
-                <h3>評価：</h3>
+                <h4>評価：</h4>
                 <select name="review[choice_id]">
                     @foreach($choices as $choice)
                         <option value="{{ $choice->id }}">{{ $choice->choice }}</option>
@@ -35,7 +36,7 @@
                 </select>
             </div>
             <div class="body">
-                <h3>口コミ文：</h3>
+                <h4>口コミ文：</h4>
                 <textarea name="review[body]" placeholder="口コミ内容を書いてください。">{{ old('review.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('review.body') }}</p>
             </div>

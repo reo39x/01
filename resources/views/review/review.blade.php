@@ -13,9 +13,10 @@
         {{Auth::user()->name}}
         
         <h1>洋服の口コミサイト</h1>
-        <h2>＞投稿した口コミ</h2>
+        <h2>投稿確認ページ</h2>
+        <h3>＞投稿した口コミ</h3>
         <div class="item">
-            <h3>商品名：{{ $review->item->name }}</h3>
+            <h4>商品名：{{ $review->item->name }}</h4>
         </div>
         <div class="choice">
             <h4>評価：</h4>
