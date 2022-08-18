@@ -13,11 +13,12 @@
         {{Auth::user()->name}}
         
         <h1>洋服の口コミサイト</h1>
-        <h2>＞過去に投稿した口コミ</h2>
+        <h2>マイページ</h2>
+        <h3>＞過去に投稿した口コミ</h3>
         <div class="own_reviews">
             @foreach ($own_reviews as $review)
                 <div class="own_review">
-                    <h3 class="own_item">商品名：{{ $review->item->name }}</h3>
+                    <h4 class="own_item">商品名：{{ $review->item->name }}</h4>
                 </div>
                 <div class="own_choice">
                     <h4>評価：</h4>
@@ -27,6 +28,11 @@
                     <h4>口コミ文：</h4>
                     <p>{{ $review->body }}</p>
                 </div>
+                <form action="/reviews/{{ $review->id }}" id="form_delete_{{ $review->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type='button' onclick="return deleteReview(this, {{ $review->id }});">削除</button>
+                </form>
             @endforeach
         </div>
 
@@ -35,6 +41,16 @@
             {{ $own_reviews -> links() }}
         </div>
         
+        <script>
+            function deleteReview(e, id)
+            {
+                'use strict';
+                if (confirm('削除すると復元できません。\n本当に削除しますか？'))
+                {
+                    document.getElementById('form_delete_' + id).submit();
+                }
+            }
+        </script>
     </body>
 </html>
 
