@@ -31,13 +31,13 @@
         <form action="/reviews/{{ $review->id }}" id="form_delete" method="POST">
             @csrf
             @method('DELETE')
-            <button type='button' onclick="return deletePost(this);">削除</button>
+            <button type='button' onclick="return deleteReview(this);">削除</button>
         </form> 
         
         <a href="/">戻る</a>
         
         <script>
-            function deletePost(e)
+            function deleteReview(e)
             {
                 'use strict';
                 if (confirm('削除すると復元できません。\n本当に削除しますか？'))
