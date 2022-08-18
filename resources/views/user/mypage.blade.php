@@ -17,8 +17,12 @@
         <h3>＞過去に投稿した口コミ</h3>
         <div class="own_reviews">
             @foreach ($own_reviews as $review)
-                <div class="own_review">
-                    <h4 class="own_item">商品名：{{ $review->item->name }}</h4>
+                <div class="own_item">
+                    <h4>商品名：{{ $review->item->name }}</h4>
+                </div>
+                <div class="own_category">
+                    <h4>カテゴリー名：</h4>
+                    <p>{{ $review->item->category->name }}</p>
                 </div>
                 <div class="own_choice">
                     <h4>評価：</h4>

@@ -6,6 +6,7 @@ use App\Item;
 use App\Review;
 use App\User;
 use App\Choice;
+use App\Category;
 use App\Http\Requests\ReviewRequest;
 
 class ReviewController extends Controller
