@@ -13,12 +13,12 @@
         {{Auth::user()->name}}
         
         <h1>洋服の口コミサイト</h1>
-        <h2>＞口コミの編集</h2>
+        <h3>＞口コミの編集</h3>
         <form action="/reviews/{{ $review->id }}" method="POST">
             @csrf
             @method('PUT')
             <div class="item">
-                <h3>商品名：</h3>
+                <h4>商品名：</h4>
                 <select name="review[item_id]">
                     @foreach($items as $item)
                         @if($item->id == $review->item->id)
@@ -30,7 +30,7 @@
                 </select>
             </div>
             <div class="choice">
-                <h3>評価：</h3>
+                <h4>評価：</h4>
                 <select name="review[choice_id]">
                     @foreach($choices as $choice)
                         @if($choice->id == $review->choice->id)
@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="body">
-                <h3>口コミ文：</h3>
+                <h4>口コミ文：</h4>
                 <textarea name="review[body]">{{ $review->body }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('review.body') }}</p>
             </div>
