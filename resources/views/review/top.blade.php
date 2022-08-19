@@ -23,7 +23,7 @@
                 <h4>商品名：</h4>
                 <select name="review[item_id]">
                     @foreach($items as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" {{ old('review.item_id')==$item->id ? "selected" : "" }}>{{ $item->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -31,7 +31,7 @@
                 <h4>評価：</h4>
                 <select name="review[choice_id]">
                     @foreach($choices as $choice)
-                        <option value="{{ $choice->id }}">{{ $choice->choice }}</option>
+                        <option value="{{ $choice->id }}" {{ old('review.choice_id')==$choice->id ? "selected" : "" }}>{{ $choice->choice }}</option>
                     @endforeach
                 </select>
             </div>
