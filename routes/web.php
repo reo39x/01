@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/reviews/{review}/edit', 'ReviewController@edit');
     Route::put('/reviews/{review}', 'ReviewController@update');
     Route::get('/user', 'UserController@mypage');
+    Route::get('/research', 'ReviewController@research');
 });
 
 Auth::routes();
